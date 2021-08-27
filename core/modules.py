@@ -4,7 +4,6 @@ from flask import Flask , request, render_template
 from werkzeug.utils import secure_filename
 import subprocess, os
 import json  
-from settings import *
 import os
 import copy 
 import random
