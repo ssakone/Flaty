@@ -19,8 +19,7 @@ from .core.modules import *
 application = QCoreApplication([])
 
 class Flaty:
-	def __init__(self, filename):
-		self.filename = filename
+	def __init__(self):
 
 		self.engine = QJSEngine()
 		
