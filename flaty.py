@@ -10,6 +10,7 @@ import random
 import shutil
 import flask_login
 from datetime import date
+import inspect
 
 from peewee import *
 
@@ -19,11 +20,16 @@ from .core.modules import *
 application = QCoreApplication([])
 
 class Flaty:
-	def __init__(self):
+	def __init__(self, template_folder = ''):
+
+		caller_path = inspect.stack()[1].filename 
+		main_dir = os.path.dirname(caller_path)
+		
+		template_folder = os.path.join(main_dir, 'templates') if template_folder =='' else os.path.join(main_dir, template_folder) 
 
 		self.engine = QJSEngine()
 		
-		self.app = Flask(__name__, static_url_path='')
+		self.app = Flask(__name__, template_folder=template_folder, static_url_path='')
 
 		self.engine.installExtensions(QJSEngine.TranslationExtension | QJSEngine.ConsoleExtension);
 
