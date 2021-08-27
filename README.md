@@ -3,6 +3,13 @@
 This small project aims to give the possibility to use Js to make a web server and also keep the power of python in js.
 So it is based on Flask for the web server, PySide2 for the Js, Peewee for the database.
 
+### Requirements
+
+- PySide2==5.15.2
+- Flask==2.0.1
+- peewee==3.14.4
+
+
 ### How to setup project
 
 * Create new main project file as `.py` and add this
