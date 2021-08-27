@@ -157,8 +157,10 @@ class JSModel(QObject):
 		c = model.create(**data)
 		obj = ModelObject()
 		obj.mode = "item"
+		obj.current_id = c.id
 		obj.model = c
 		ob = self.engine.newQObject(obj)
+		print(dir(c), obj, ob)
 		return ob
 	@Slot(QJSValue, int, result=int)
 	def delete(self, table, ids):

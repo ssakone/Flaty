@@ -20,10 +20,9 @@ from .core.modules import *
 application = QCoreApplication([])
 
 class Flaty:
-	def __init__(self, template_folder = ''):
+	def __init__(self, filename=inspect.stack()[1].filename, template_folder = ''):
 
-		caller_path = inspect.stack()[1].filename 
-		main_dir = os.path.dirname(caller_path)
+		main_dir = os.path.dirname(filename)
 		
 		template_folder = os.path.join(main_dir, 'templates') if template_folder =='' else os.path.join(main_dir, template_folder) 
 
