@@ -18,7 +18,7 @@ So it is based on Flask for the web server, PySide2 for the Js, Peewee for the d
 ```python
 from Flaty.flaty import Flaty
 
-app = Flaty()
+app = Flaty(__name__)
 app.run()
 
 ```
