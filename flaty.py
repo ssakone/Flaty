@@ -1,5 +1,5 @@
-from PySide2.QtQml import *
-from PySide2.QtCore import *
+from PySide6.QtQml import *
+from PySide6.QtCore import *
 from flask import Flask , request, render_template
 from werkzeug.utils import secure_filename
 import subprocess, os
@@ -21,11 +21,11 @@ from .core.modules import *
 application = QCoreApplication([])
 
 class Flaty:
-	def __init__(self, name, **arguments):
+	def __init__(self, name = , **arguments):
 		
 		self.engine = QJSEngine()
 		
-		self.app = Flask(name, **arguments)
+		self.app = Flask(name = __main__.__name__, **arguments)
 
 		self.engine.installExtensions(QJSEngine.TranslationExtension | QJSEngine.ConsoleExtension);
 

@@ -1,5 +1,5 @@
-from PySide2.QtQml import *
-from PySide2.QtCore import *
+from PySide6.QtQml import *
+from PySide6.QtCore import *
 from flask import Flask , request, render_template
 from werkzeug.utils import secure_filename
 import subprocess, os
