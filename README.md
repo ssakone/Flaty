@@ -34,28 +34,26 @@ app.add_routes('route/route.js')
 
 `route.js` 
 ```js
-(function() { 
-	Routers.route({
-		name: "index", route: "/", methods: ["GET"],
-		onCall: (request) => {
-			return "200 Ok"
+Routers.route({
+	name: "index", route: "/", methods: ["GET"],
+	onCall: (request) => {
+		return "200 Ok"
+	}
+})
+Routers.route({
+	name: "calculate", route: "/calc", methods: ["GET"],
+	onCall: (request) => {
+		let r = JSON.parse(request)
+		if(r.n1 !== undefined && r.n2 !== undefined) {
+			return "%1 + %2 = %3"
+						.arg(r.n1)
+						.arg(r.n2)
+						.arg(parseInt(r.n1) + parseInt(r.n2))
 		}
-	})
-	Routers.route({
-		name: "calculate", route: "/calc", methods: ["GET"],
-		onCall: (request) => {
-			let r = JSON.parse(request)
-			if(r.n1 !== undefined && r.n2 !== undefined) {
-				return "%1 + %2 = %3"
-							.arg(r.n1)
-							.arg(r.n2)
-							.arg(parseInt(r.n1) + parseInt(r.n2))
-			}
-			else {
-				return "No calcul"
-			}
+		else {
+			return "No calcul"
 		}
-	})
+	}
 })
 
 ```
